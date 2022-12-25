@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Clousers</title>
+</head>
+<body>
+    <h1 class="mainheading">Clousers </h1>
+
+
+    <div class="boxes">
+        <h2>Ans.1  </h2>
+        <pre class="code">
+            function counter(){
+                var counter=0;
+                function increaseCounter(){
+                    return counter+=1;
+                };
+                return increaseCounter;
+            }
+             var counter = counter(); 
+            //we are calling inner function 
+            // so line no.18 making clouser after that it never goes 
+            // to line no.18 so every time it is increasing.
+            alert(counter());//1
+            alert(counter());//2
+            alert(counter());//3
+            alert(counter());//4
+        </pre>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+       <h2>Ans.2</h2>
+        <pre class="code">
+            let count2 = 0;
+            (function(){
+                if(count2===0){
+                    let count2=1;
+                    console.log(count2)//1
+                }
+                console.log(count2)//0
+            })();
+            
+        </pre>
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+        <h2>Ans.3 </h2>
+        <pre class="code">
+            for(var i=0;i < 3;i++){//in case of let it will print 0,1,2
+                setTimeout(function log(){
+                    console.log(i);//in case of var print 3 three times.
+                },1000);
+            }
+            
+
+        </pre>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+        <h2>Ans.4 </h2>
+        <pre class="code">
+            function param(){
+                let A,w=10,l=20;
+                return function areaOfRectangle(){   
+                    console.log (A=w*l);
+                }
+            }
+            param()();
+
+        </pre>
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+    <div class="boxes">
+        <pre>
+            // Ans.5= Take a variable counter in outer function and 
+// increase the the counter in inner function in js is 
+// called  CLOSURES.
+        </pre>
+    </div>
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+        <h2>Ans.6 </h2>
+        <pre class="code">
+            var a6=12;
+            (function(){
+                alert(a6);
+            })();
+
+        </pre>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+        <h2>Ans.7 </h2>
+        <pre class="code">
+            var a7=10;
+            var x = (function(){
+                var a7=14;
+                return function(){
+                    alert(a7);
+                };
+            })();
+            x()
+        </pre>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="boxes">
+        <h2>Ans.8</h2>
+        <pre class="code">
+            var globalVar="xyz";
+            (function outerfunc8(outerArg){
+                var outerVar="a";
+                (function innerfunc8(innerArg){
+                    var innerVar="b";
+            
+                    console.log(
+                        "outerArg="+outerArg+"\n"+//123
+                        "innerArg="+innerArg+"\n"+//456
+                        "outerVar="+outerVar+"\n"+//a
+                        "innerVar="+innerVar+"\n"+//b
+                        "globalVar="+globalVar+"\n"//xyz
+                        );
+            
+            
+                })(456);
+            })(123);
+</pre>
+</div>            
+
+    
+</body>
+</html>
